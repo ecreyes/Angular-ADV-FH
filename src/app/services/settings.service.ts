@@ -19,7 +19,17 @@ export class SettingsService {
   cargarAjustes(){
     if(localStorage.getItem('ajustes')){
       this.ajustes = JSON.parse(localStorage.getItem('ajustes'));
+      this.aplicarTema(this.ajustes.tema);
     }
+  }
+
+  aplicarTema(estilo:string){
+    let miUrl = `assets/css/colors/${estilo}.css`
+    this._document.getElementById('tema').setAttribute('href',miUrl);
+    this.ajustes.tema = estilo;
+    this.ajustes.temaUrl = miUrl;
+    this.guardarAjustes();
+
   }
 
 }

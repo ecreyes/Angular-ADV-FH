@@ -9,20 +9,16 @@ import { SettingsService } from "../../services/settings.service";
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private _document,private settings:SettingsService) { 
-    console.log(_document);
+  constructor(private settings:SettingsService) { 
   }
 
   ngOnInit() {
+    this.colocarCheck();
   }
 
   cambiarColor(estilo:string,link:any){
     this.aplicarCheck(link);
-    let miUrl = `assets/css/colors/${estilo}.css`
-    this._document.getElementById('tema').setAttribute('href',miUrl);
-    this.settings.ajustes.tema = estilo;
-    this.settings.ajustes.temaUrl = miUrl;
-    this.settings.guardarAjustes();
+    this.settings.aplicarTema(estilo);
   }
 
   aplicarCheck(link:any){
@@ -34,5 +30,16 @@ export class AccountSettingsComponent implements OnInit {
     }
     //al seleccionado se le añade la class working
     link.classList.add('working');
+  }
+
+  colocarCheck(){
+    let selectores:any = document.getElementsByClassName('selector');
+    for(let ref of selectores){
+      let palabra = this.settings.ajustes.tema + "-theme";
+      if(ref.classList[1]==palabra){
+        ref.classList.add('working');
+        break;
+      }
+    }
   }
 }

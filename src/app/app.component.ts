@@ -7,7 +7,6 @@ import { SettingsService } from "./services/settings.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularADV';
 
   constructor(private settings:SettingsService){
     settings.cargarAjustes();
