@@ -8,7 +8,7 @@ import { APP_ROUTES } from "./app.routes";
 import { PagesModule } from "./pages/pages.module";
 
 //servicios
-import { SettingsService } from "./services/settings.service";
+import { ServiceModule } from "./services/service.module";
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -27,9 +27,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule
+    PagesModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
