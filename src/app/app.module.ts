@@ -6,6 +6,7 @@ import { APP_ROUTES } from "./app.routes";
 
 //Modulos
 import { PagesModule } from "./pages/pages.module";
+import { FormsModule } from '@angular/forms';
 
 //servicios
 import { ServiceModule } from "./services/service.module";
@@ -26,6 +27,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     APP_ROUTES,
     PagesModule,
     ServiceModule
